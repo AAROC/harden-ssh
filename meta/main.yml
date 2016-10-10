@@ -1,0 +1,19 @@
+galaxy_info:
+  author: Bruce Becker
+  description: A role to harden SSH on machines at the CSIR
+  company: CSIR Meraka Institute
+
+  license: Apache-2.0
+
+  min_ansible_version: 2.2
+
+  platforms:
+  - name: EL
+    versions:
+      - 6
+
+  galaxy_tags: []
+    - security
+    - hardening
+
+dependencies: []

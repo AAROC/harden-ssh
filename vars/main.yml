@@ -1,0 +1,18 @@
+---
+# vars file for harden-ssh
+
+# Which port will ssh listen on
+openssh_port: 22
+
+# Allowed ciphers and macs in sshd config
+allowed_openssh_ciphers:
+  - aes128-ctr
+  - aes192-ctr
+  - aes256-ctr
+  - arcfour256
+  - arcfour128
+
+allowed_openssh_macs:
+  - hmac-sha1
+  - umac-64@openssh.com
+  - hmac-ripemd160

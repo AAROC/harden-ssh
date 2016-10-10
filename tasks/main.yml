@@ -1,0 +1,7 @@
+---
+# tasks file for harden-ssh
+
+# Start off with a common blank slate
+- include: "sshd-template-{{ ansible_os_distribution }}.yml"
+# Address Weak Ciphers and MACs
+- include: Weak-Ciphers-CVE-2008-5161.yml

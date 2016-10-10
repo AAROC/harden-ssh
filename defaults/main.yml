@@ -1,0 +1,3 @@
+---
+# defaults file for harden-ssh
+openssh_port: 22
