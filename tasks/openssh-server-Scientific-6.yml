@@ -1,0 +1,7 @@
+---
+
+- name: Ensure that openssh server is installed
+  package:
+    name: "{{ openssh_server_name[ansible_os_family] }}"
+    state: latest
+    update_cache: true
