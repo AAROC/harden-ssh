@@ -5,3 +5,26 @@
     name: "{{ openssh_server_name[ansible_os_family] }}"
     state: latest
     update_cache: true
+
+- name: Vanilla sshd template
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: /tmp/sshd_config
+
+- name: insert/update "Match User" configuation block in sshd_config
+  blockinfile:
+    marker: "#{mark} ANSIBLE MANAGED"
+    dest: /tmp/sshd_config
+    block: |
+      Match User ansible-agent
+      PasswordAuthentication no
+    state: present
+
+- name: SSHD in test mode once
+  command: /usr/sbin/sshd -t -f /tmp/sshd_config
+  register: sshd_test
+
+
+- name: test output
+  debug:
+    var: sshd_test.stderr

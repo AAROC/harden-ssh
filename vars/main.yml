@@ -1,8 +1,35 @@
 ---
 # vars file for harden-ssh
 
+# openssh_accepted_env:
+
+openssh_server_name:
+  RedHat: openssh-server
+  Debian: openssh-server
 # Which port will ssh listen on
 openssh_port: 22
+openssh_protocol: 2
+openssh_use_pam: true
+openssh_allow_x_forwarding: true
+
+# authentication options #
+
+ChallengeResponseAuthentication: false
+# Generic Security Services API
+# could probably do this better with a list and then loop oer that
+GSSAPI:
+  GSSAPIAuthentication: true
+  GSSAPICleanupCredentials: true
+  GSSAPIStrictAcceptorCheck: true
+  GSSAPIKeyExchange: false
+# Kerberos
+Kerberos:
+  KerberosAuthentication: false
+  KerberosOrLocalPasswd: true
+  KerberosTicketCleanup: true
+  KerberosUseKuserok: false
+
+
 
 # Allowed ciphers and macs in sshd config
 allowed_openssh_ciphers:
