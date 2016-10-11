@@ -12,7 +12,7 @@
     dest: /etc/ssh/sshd_config
 
 - name: SSHD in test mode once
-  command: /usr/sbin/sshd -t -f /tmp/sshd_config
+  command: /usr/sbin/sshd -t -f /etc/ssh/sshd_config
   register: sshd_test
 
 

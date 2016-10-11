@@ -3,3 +3,10 @@
   remote_user: root
   roles:
     - harden-ssh
+  post_tasks:
+    - name: check that ssh server can run
+      command: /usr/sbin/sshd -t -f /etc/ssh/sshd_config
+      register: ssh_test_output
+    - name: debug output
+      debug:
+        var: ssh_test_output.stderr

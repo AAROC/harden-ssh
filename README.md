@@ -1,10 +1,16 @@
+[![Build Status](https://travis-ci.org/AAROC/harden-ssh.svg?branch=master)](https://travis-ci.org/AAROC/harden-ssh)
+
 # harden-ssh
 
-A role to harden ssh on various platforms
+A role to harden ssh on various platforms.
+
+## Tested platforms:
+
+  1. Scientific Linux 6
 
 ## Vulnerabilities Addressed
 
-  1.
+  1. CVE-2008-5161 (weak ciphers)
 
 
 # References and Related material
