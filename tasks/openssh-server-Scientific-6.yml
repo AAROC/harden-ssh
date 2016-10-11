@@ -9,7 +9,7 @@
 - name: Vanilla sshd template
   template:
     src: etc/ssh/sshd_config.j2
-    dest: /tmp/sshd_config
+    dest: /etc/ssh/sshd_config
 
 - name: SSHD in test mode once
   command: /usr/sbin/sshd -t -f /tmp/sshd_config
