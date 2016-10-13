@@ -27,7 +27,6 @@ Kerberos:
   KerberosAuthentication: false
   KerberosOrLocalPasswd: true
   KerberosTicketCleanup: true
-  KerberosUseKuserok: false
 
 
 
