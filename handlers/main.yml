@@ -2,5 +2,5 @@
 # handlers file for harden-ssh
 - name: restart ssh
   service:
-    name: sshd
+    name: "{{ openssh_service_name[ansible_distribution]}}"
     state: restarted

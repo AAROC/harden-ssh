@@ -7,6 +7,9 @@ openssh_server_name:
   RedHat: openssh-server
   Debian: openssh-server
 # Which port will ssh listen on
+openssh_service_name:
+  RedHat: sshd
+  Debian: ssh
 openssh_port: 22
 openssh_protocol: 2
 openssh_use_pam: true
