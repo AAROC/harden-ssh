@@ -1,2 +1,6 @@
 ---
 # handlers file for harden-ssh
+- name: restart ssh
+  service:
+    name: sshd
+    state: restarted
