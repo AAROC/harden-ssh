@@ -11,7 +11,7 @@
     dest: /var/run/sshd
     state: directory
     owner: root
-    mode: rwx
+    mode: ug+rwx
 
 - name: Vanilla sshd template
   template:
