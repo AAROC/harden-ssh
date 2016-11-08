@@ -6,6 +6,13 @@
     state: latest
     update_cache: true
 
+- name: Ensure that the privelige separation directory is present
+  file:
+    dest: /var/run/sshd
+    state: directory
+    owner: root
+    mode: rwx
+
 - name: Vanilla sshd template
   template:
     src: etc/ssh/sshd_config.j2
