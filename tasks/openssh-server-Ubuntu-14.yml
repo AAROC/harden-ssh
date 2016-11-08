@@ -1,0 +1,21 @@
+---
+
+- name: Ensure that openssh server is installed
+  package:
+    name: "{{ openssh_server_name[ansible_os_family] }}"
+    state: latest
+    update_cache: true
+
+- name: Vanilla sshd template
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+
+- name: SSHD in test mode once
+  command: /usr/sbin/sshd -t -f /etc/ssh/sshd_config
+  register: sshd_test
+
+
+- name: test output
+  debug:
+    var: sshd_test.stderr
