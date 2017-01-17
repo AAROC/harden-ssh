@@ -1,6 +1,6 @@
 ---
 # tasks file for harden-ssh
-
+- include: stop-unnecessary-services.yml
 # Start off with a common blank slate
 - include: "openssh-server-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 # Address Weak Ciphers and MACs
@@ -9,3 +9,5 @@
 - include: ICMP-Timestamp-CVE-1999-0524.yml
 # - include: apache stuff
 # - include: ntp stuff
+
+#  - include: remove-wireless-modules.yml
