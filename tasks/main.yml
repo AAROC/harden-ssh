@@ -5,7 +5,7 @@
 - include: "openssh-server-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 # Address Weak Ciphers and MACs
 - include: Weak-Ciphers-CVE-2008-5161.yml
-
+# Address ICMP  timestamp issues.
+- include: ICMP-Timestamp-CVE-1999-0524.yml
 # - include: apache stuff
 # - include: ntp stuff
-# - include: firewall stuff
