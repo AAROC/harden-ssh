@@ -47,3 +47,10 @@ allowed_openssh_macs:
 # explicitly banned ciphers and macs in sshd config
 banned_openssh_ciphers: []
 banned_openssh_macs: []
+
+#  Blacklist services which are not supposed to be started in prod
+unnecessary_services:
+  Debian:
+    - avahi-daemon
+  RedHat:
+    - avahi-daemon

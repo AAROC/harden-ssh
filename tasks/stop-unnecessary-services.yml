@@ -1,0 +1,6 @@
+---
+- name: Stop insecure services
+  service:
+    name: "{{ item }}"
+    state: stopped
+  with_items: "{{ unnecessary_services[ansible_distribution]}}"
