@@ -54,3 +54,5 @@ unnecessary_services:
     - avahi-daemon
   RedHat:
     - avahi-daemon
+  Scientific:
+    - avahi-daemon
