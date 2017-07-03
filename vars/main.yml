@@ -52,9 +52,13 @@ banned_openssh_macs: []
 unnecessary_services:
   Debian:
     - avahi-daemon
+    - nonexistent_service
   Ubuntu:
     - avahi-daemon
+    - nonexistent_service
   RedHat:
     - avahi-daemon
+    - nonexistent_service
   Scientific:
     - avahi-daemon
+    - nonexistent_service

@@ -1,8 +1,19 @@
 ---
+- name: Check if insecure services are present
+  stat:
+    path: "/etc/init.d/{{ item }}"
+  register: service_status
+  with_items: "{{ unnecessary_services[ansible_distribution]}}"
+
+- name: debug the service_status
+  debug:
+    var: service_status
+
 - name: Stop insecure services
   service:
     name: "{{ item }}"
     state: stopped
+  when: "service_status[{{ item }}].stat.exists"
   with_items: "{{ unnecessary_services[ansible_distribution]}}"
 
 - name: Ensure that insecure services are disabled
