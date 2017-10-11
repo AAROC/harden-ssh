@@ -15,6 +15,10 @@
     state: stopped
   when: "service_status[{{ item }}].stat.exists"
   with_items: "{{ unnecessary_services[ansible_distribution]}}"
+  register: insecure_services
+  # Sometimes the package that provides the service is not even installed.
+  failed_when: false
+ 
 
 - name: Ensure that insecure services are disabled
   service:
