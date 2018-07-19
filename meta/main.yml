@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Bruce Becker
   description: A role to harden SSH on machines at the CSIR
@@ -8,9 +9,10 @@ galaxy_info:
   min_ansible_version: 2.2
 
   platforms:
-  - name: EL
-    versions:
-      - 6
+    - name: EL
+      versions:
+        - 6
+        - 7
 
   galaxy_tags:
     - security

@@ -3,7 +3,7 @@
   stat:
     path: "/etc/init.d/{{ item }}"
   register: service_status
-  with_items: "{{ unnecessary_services[ansible_distribution]}}"
+  loop: "{{ unnecessary_services[ansible_distribution]}}"
 
 - name: debug the service_status
   debug:
@@ -13,15 +13,15 @@
   service:
     name: "{{ item }}"
     state: stopped
-  when: "service_status[{{ item }}].stat.exists"
-  with_items: "{{ unnecessary_services[ansible_distribution]}}"
+    enabled: false
+  loop: "{{ unnecessary_services[ansible_distribution]}}"
   register: insecure_services
   # Sometimes the package that provides the service is not even installed.
   failed_when: false
- 
 
 - name: Ensure that insecure services are disabled
   service:
     name: "{{ item }}"
-    enabled: no
+    enabled: false
   with_items: "{{ unnecessary_services[ansible_distribution]}}"
+  failed_when: false

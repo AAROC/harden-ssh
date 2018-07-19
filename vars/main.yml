@@ -31,8 +31,6 @@ Kerberos:
   KerberosOrLocalPasswd: true
   KerberosTicketCleanup: true
 
-
-
 # Allowed ciphers and macs in sshd config
 allowed_openssh_ciphers:
   - aes128-ctr
@@ -58,5 +56,5 @@ unnecessary_services:
     - avahi-daemon
   Scientific:
     - avahi-daemon
-  CentOS: 
+  CentOS:
     - avahi-daemon

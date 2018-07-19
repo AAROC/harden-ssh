@@ -1,13 +1,16 @@
 ---
 # tasks file for harden-ssh
-- include: stop-unnecessary-services.yml
+- import_tasks: stop-unnecessary-services.yml
+  when: ansible_virtualization_role != "guest"
 # Start off with a common blank slate
 - include: "openssh-server-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+  when: ansible_virtualization_role != "guest"
 # Address Weak Ciphers and MACs
-- include: Weak-Ciphers-CVE-2008-5161.yml
+- import_tasks: Weak-Ciphers-CVE-2008-5161.yml
+  when: ansible_virtualization_role != "guest"
 # Address ICMP  timestamp issues.
-- include: ICMP-Timestamp-CVE-1999-0524.yml
+- import_tasks: ICMP-Timestamp-CVE-1999-0524.yml
+  when: ansible_virtualization_role != "guest"
 # - include: apache stuff
 # - include: ntp stuff
-
 #  - include: remove-wireless-modules.yml
